@@ -28,12 +28,24 @@ function izveido(){
                 let poga = document.createElement("INPUT");
                 poga.value = "Poga " + ((i * n) + j +1);
                 poga.type = "button";
-                poga.style.width = n + "4px";
-                poga.style.height = n + "4px";
+                poga.style.width =  n + "8px";
+                poga.style.height = n + "8px";
+                poga.style.margin = "15px";
+                poga.style.border = "none";
+                kollona.style.paddingTop = "50px";
+                kollona.style.paddingBottom = "50px";
+                kollona.style.paddingLeft = "50px";
+                kollona.style.paddingRight = "50px";
+                kollona.style.marginTop = "60px";   
+                kollona.style.marginRight = "400px";  
+                kollona.style.marginLeft = "400px";  
+                
 
                 rinda.appendChild(poga);
                 }   
             }
+           document.getElementById("forma").style.display = "none";
+           document.getElementById("podz").style.display = "none";
           } 
   
 

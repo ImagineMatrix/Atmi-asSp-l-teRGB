@@ -14,8 +14,138 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-    
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    .ieksa {
+        margin-right: 500px;
+        border-radius: 20px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        box-sizing: border-box;
+       background-color: blue;
+        color: black;
+        font-family:unset;
+        text-align: center;
+       transition: box-shadow 0.8s;
+       cursor: pointer;
+    }
+    .ieksa:hover {
+        background-color: black;
+        color: white;
+       box-shadow: 7px 2px blue;
+        cursor: pointer;
+    }
+    .ieksa:active {
+        background-color: black;
+        color: white;
+       box-shadow: 7px 2px blue;
+        cursor: pointer;
+    }
+    .podzina {
+        margin:40px; 
+        border:none; 
+        border-radius: 30px;
+       background: blue;
+        transition: box-shadow 0.8s;
+         cursor: pointer;
+    }
+    .podzina:hover {
+        box-shadow: 7px 2px blue;
+        background-color: black;
+        color: white;
+         cursor: pointer;
+    }
+    .podzina:active {
+        box-shadow: 7px 2px blue;
+        background-color: black;
+        color: white;
+         cursor: pointer;
+    }
+    .w3-jumbo {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    animation: glow 1.5s infinite alternate;
+     cursor: pointer;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    }
+    100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
+    }
+}
+
+.melting-text-container {
+    position: relative;
+    overflow: hidden;
+     cursor: pointer;
+}
+
+.melting-text {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    position: relative;
+    animation: melt 3s infinite ease-in-out;
+    background: linear-gradient(90deg, #ff6f61, #ffbd44, #ff6f61);
+    -webkit-background-clip: text;
+    color: transparent;
+     cursor: pointer;
+}
+
+.melting-text::before,
+.melting-text::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff6f61, #ffbd44, #ff6f61);
+    -webkit-background-clip: text;
+    color: transparent;
+    z-index: -1;
+    transform: scaleY(1);
+    opacity: 0.5;
+    animation: drip 3s infinite ease-in-out;
+     cursor: pointer;
+}
+
+.melting-text::after {
+    filter: blur(10px);
+    opacity: 0.3;
+     cursor: pointer;
+}
+
+/* Keyframes for melting effect */
+@keyframes melt {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes drip {
+    0%, 100% {
+        transform: scaleY(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scaleY(1.5);
+        opacity: 0.7;
+    }
+}
+.kol{
+    background-color: #223;
+  
+}
+   
+   
+body, h1,h2,h3,h4,h5,h6 {font-family: "unset", sans-serif}
 .w3-row-padding img {margin-bottom: 12px}
 /* Set the width of the sidebar to 120px */
 .w3-sidebar {width: 120px;background: #223}
@@ -66,13 +196,18 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
     <h1 class="w3-jumbo"><span class="w3-hide-small">Minēšanas </span>Spēle!</h1>
-    <p>Tēma: RGB!</p>
-     <div class="augsa">
-        <div id="containers">Izvēlies ar cik kartiņām vēlies spēlēt!</div>
-        <input id="forma" type="number">
-        <button onclick="izveido()">Spēlēt!</button>
-        <div id="kollona"></div>
+    <div class="melting-text-container">
+    <div class="augsa">
+         <p class="melting-text">Tēma: RGB!</p>
+        <div class="melting-text" id="containers">Izvēlies ar cik kartiņām vēlies spēlēt!</div>
+    </div>
+        <input class="ieksa" style="
+" id="forma" type="text">
+        <button id="podz" class="podzina" onclick="izveido()">Spēlēt!</button>
+       
+        <div class="kol" id="kollona"></div>
          <p id="alerts"></p>
+      
        </div>
   </header>
 
