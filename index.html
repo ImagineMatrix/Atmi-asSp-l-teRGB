@@ -13,6 +13,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+    
+    #laiks {
+        position: relative;
+        margin: auto;
+        background-color: #223;
+        width: 100px;
+        align-items: center;
+        z-index: 200;
+    }
+    
     .ieksa {
         margin-right: 500px;
         border-radius: 20px;
@@ -21,7 +31,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         border: none;
         box-sizing: border-box;
        background-color: blue;
-        color: black;
+         color: white;
         font-family:unset;
         text-align: center;
        transition: box-shadow 0.8s;
@@ -43,7 +53,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         margin:40px; 
         border:none; 
         border-radius: 30px;
-       background: blue;
+        background: blue;
+        color: white;
         transition: box-shadow 0.8s;
          cursor: pointer;
     }
@@ -98,6 +109,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 .melting-text::before,
 .melting-text::after {
     position: absolute;
+    display: block;
     top: 0;
     left: 0;
     width: 100%;
@@ -138,7 +150,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         opacity: 0.7;
     }
 }
+
 .kol{
+    position: relative;
+    margin:auto;
+    width: 600px;
+    height: 400px;
     background-color: #223;
   
 }
@@ -196,6 +213,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "unset", sans-serif}
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
     <h1 class="w3-jumbo"><span class="w3-hide-small">Minēšanas </span>Spēle!</h1>
     <div class="melting-text-container">
+        
     <div class="augsa">
          <p class="melting-text">Tēma: RGB!</p>
         <div class="melting-text" id="containers">Izvēlies ar cik kartiņām vēlies spēlēt!</div>
@@ -204,8 +222,14 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "unset", sans-serif}
 " id="forma" type="text">
         <button id="podz" class="podzina" onclick="izveido()">Spēlēt!</button>
        
-        <div class="kol" id="kollona"></div>
-         <p id="alerts"></p>
+            <div class="kol" id="kollona">
+                 <p id="laiks">hhh</p>
+                 <!-- javeidodiv tags caur java script un kā bērns jāpievienop kol klasei 
+                 <p id="alerts"></p>
+             </div> 
+             
+       
+        
       
        </div>
   </header>
@@ -268,7 +292,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "unset", sans-serif}
 <!-- END PAGE CONTENT -->
 </div>
 
-  <script src="Pogasizveide.js"></script>
+<script src="Pogasizveide.js"></script>
 </body>
 </html>
 >>>>>>> origin/main

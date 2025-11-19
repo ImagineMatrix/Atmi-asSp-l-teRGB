@@ -6,9 +6,14 @@
 function izveido(){
 
 
-             document.getElementById("kollona").innerHTML = "";
-         if(document.getElementById("kollona") !== null){
-             document.getElementById("kollona").innerHTML = "";
+            let kollona;
+         if(document.getElementById("pogaslaukums") !== null){
+             document.getElementById("pogaslaukums").innerHTML = "";
+          kollona = document.getElementById("pogaslaukums");
+        }
+        else{
+            let kollona = document.createElement("DIV");
+            //set atribute
         }
           document.getElementById("alerts").innerHTML = "";
           let n = parseInt(document.getElementById('forma').value);
@@ -40,14 +45,29 @@ function izveido(){
                 kollona.style.marginRight = "400px";  
                 kollona.style.marginLeft = "400px";  
                 
+                
 
                 rinda.appendChild(poga);
+                
                 }   
             }
-           document.getElementById("forma").style.display = "none";
-           document.getElementById("podz").style.display = "none";
+           //document.getElementById("forma").style.display = "none";
+           //document.getElementById("podz").style.display = "none";
           } 
   
+
+let sekundes = 20;
+// funkcija atkārtoti tiks izsaukta ik pēc 1000 milisekundēm
+setInterval(function(){
+   document.getElementById("laiks").innerHTML= sekundes+" s ";
+   if (sekundes>0) sekundes--;   
+},1000);
+
+// funkcijas izsaukšana tiek atlikta uz 11000 milisekundēm 
+ setTimeout(function(){
+    document.getElementById("laiks").style.backgroundColor="red";
+ },11000);
+
 
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
@@ -71,12 +91,12 @@ function randomPairs(k){
 let bildes1 = ["a1.png","a2.png","a3.png","a4.png","a5.png","a6.png"];
 let bildes2 = ["(255, 0, 0)","(0, 255, 0)","(0, 0, 255)","(255, 255, 0)","(255, 255, 255)","(0, 0, 0)"];
 
-let bildes=randomPairs(4);
+//let bildes=randomPairs(4);
 
-shuffle(bildes);
-
-for (let i in bildes) {
-    console.log(bildes[i]);
-}
+//shuffle(bildes);
+//
+//for (let i in bildes) {
+//    console.log(bildes[i]);
+//}
 
 
