@@ -87,24 +87,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     }
 }
 
-.melting-text-container {
-    position: relative;
-    overflow: hidden;
-     cursor: pointer;
-}
 
-.melting-text {
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #fff;
-    position: relative;
-    animation: melt 3s infinite ease-in-out;
-    background: linear-gradient(90deg, #ff6f61, #ffbd44, #ff6f61);
-    -webkit-background-clip: text;
-    color: transparent;
-     cursor: pointer;
-}
 
 .melting-text::before,
 .melting-text::after {
@@ -152,10 +135,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 }
 
 .kol{
-    position: relative;
+   
     display: block;
     margin-top: 100px;
-    margin-left: 280px;
+    margin-left: 530px;
     width: 600px;
     height: 400px;
     background-color: #223;
@@ -164,13 +147,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
    
    
 body, h1,h2,h3,h4,h5,h6 {font-family: "unset", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {width: 120px;background: #223}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {margin-left: 120px}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+/*.w3-row-padding img {margin-bottom: 12px}
+    /* Set the width of the sidebar to 120px */
+    .w3-sidebar {width: 120px;background: #223}
+    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+    #main {margin-left: 120px}
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {#main {margin-left: 0}} 
 
 
 </style>
@@ -221,8 +204,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "unset", sans-serif}
          <p class="melting-text">Tēma: RGB!</p>
         <div class="melting-text" id="containers">Izvēlies ar cik kartiņām vēlies spēlēt!</div>
     </div>
-        <input class="ieksa" style="" id="forma" type="text">
-        <button id="podz" class="podzina" onclick="izveido()">Spēlēt!</button>
+        <input id="ieksaa" class="ieksa" style=""  type="text" name="ieksa">
+        <button id="podz" class="podzina" onclick="izveido(Number(ieksaa.value))">Spēlēt!</button>
        
             <div class="kol" id="kollona">
                  <p id="laiks"></p>

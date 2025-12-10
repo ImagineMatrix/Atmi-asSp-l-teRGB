@@ -1,16 +1,21 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/javascript.js to edit this template
- */
-       
-function izveido(){
-                   
-                   function shuffle(array) {
-                   array.sort(() => Math.random() - 0.5);
-               }
 
-               function randomPairs(k){
-                   let n = Document.getElementById("forma").value;
+
+
+
+let bildes1 = ["a1.png","a2.png","a3.png","a4.png","a5.png","a6.png", "a7.png", "a8.png"];
+let bildes2 = ["(255, 0, 0)","(0, 255, 0)","(0, 0, 255)","(255, 255, 0)","(255, 255, 255)","(0, 0, 0)", "(255, 0, 255)", "(0, 255, 255)"];
+ 
+
+
+
+
+function shuffle(array) {
+     array.sort(() => Math.random() - 0.5);
+  }
+  
+  function randomPairs(k){
+      console.log(k+"***");
+                   let n = document.getElementById("ieksaa").value;
                    let randomi=new Set();
                    let randomBildes=[];
                     n=bildes1.length;
@@ -23,19 +28,21 @@ function izveido(){
                    });
                    return randomBildes;
                }
+   function izveido(n){
+                    
+                 console.log(n+"++");
 
 
-               let bildes1 = ["a1.png","a2.png","a3.png","a4.png","a5.png","a6.png", "a7.png", "a8.png"];
-               let bildes2 = ["(255, 0, 0)","(0, 255, 0)","(0, 0, 255)","(255, 255, 0)","(255, 255, 255)","(0, 0, 0)", "(255, 0, 255)", "(0, 255, 255)"];
+               
 
                let bildes;
-               if(n === 2){
+               if(n == 2){
                bildes = randomPairs(2);
                }
-               else if (n === 4) {
+               else if (n == 4) {
                bildes = randomPairs(8);
                }
-
+               console.log(bildes.length);
 
                shuffle(bildes);
 
@@ -54,7 +61,7 @@ function izveido(){
             //set atribute
         }
           document.getElementById("alerts").innerHTML = "";
-          n = parseInt(document.getElementById('forma').value);
+          n = parseInt(document.getElementById('ieksaa').value);
           if(n <= 0){
               document.getElementById("alerts").innerHTML = "Ievadi pozitīvu skaitli";
               return 0;
@@ -64,24 +71,33 @@ function izveido(){
            for(let i = 0; i < n ; i++){
                 let rinda = document.createElement("DIV");
                 kollona.appendChild(rinda);
-                let urrl = "https://ebetina.pythonanywhere.com/static/";
+                let urrl = 'https://ebetina.pythonanywhere.com/static/';
 
                 for(let j = 0; j < n; j++){
                 let kollona = document.getElementById("kollona");   
-                let poga = document.createElement("INPUT");
-                poga.type = "button";
-                
-                if (bildes[i*n + j].startsWith("a")){
-                poga.style.backgroundImage = "url("+urrl + bildes[i*n + j]+")";
-                console.log("hey");
-                 }
-                else {
-                poga.value = bildes[i*n + j];
-                }
-                
-
-                poga.style.width = "40%";
-                poga.style.height = n/2 + "25px";
+                 let poga = document.createElement("INPUT");
+                 poga.style.backgroundImage = "url('https://ebetina.pythonanywhere.com/static/doma.avif')";
+                 poga.setAttribute("id", (i*n + j) + "");
+                 poga.type = "button";
+                 poga.onclick=()=>{
+                    let z = Number(poga.getAttribute("id"));
+                       if (bildes[i*n + j].startsWith("a")){  //i*n + j//
+                       poga[z].style.backgroundImage = "url("+urrl + bildes[i*n + j]+")";
+                       console.log("hey");
+                        }
+                       else {
+                       poga[z].style.backgroundImage = bildes[(i*n + j) + "hey"];
+                    }
+                 }    
+                if(n == 2){
+                 poga.style.width = "140px";
+                poga.style.height =  "130px";
+               }
+               else if(n == 4){
+                 poga.style.width = "80px";
+                poga.style.height =  "50px";
+               }
+               
                 poga.style.margin = "15px";
                 poga.style.border = "none";
                 kollona.style.paddingTop = "50px";
@@ -90,7 +106,10 @@ function izveido(){
                 kollona.style.paddingRight = "50px";
                 kollona.style.marginTop = "60px";   
                 kollona.style.marginRight = "400px";  
-                kollona.style.marginLeft = "400px";  
+                kollona.style.marginLeft = "400px";
+                kollona.style.alingItems = "center";
+                
+     
                 
                 
 
@@ -101,6 +120,7 @@ function izveido(){
            //document.getElementById("forma").style.display = "none";
            //document.getElementById("podz").style.display = "none";
           } 
+
   
 
 //let sekundes = 60;
