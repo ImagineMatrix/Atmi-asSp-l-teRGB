@@ -7,7 +7,9 @@ let bildes2 = ["(255, 0, 0)","(0, 255, 0)","(0, 0, 255)","(255, 255, 0)","(255, 
  
 
 
-
+let firstBtn = null;
+let secondBtn = null;
+let lock = false;
 
 function shuffle(array) {
      array.sort(() => Math.random() - 0.5);
@@ -29,7 +31,10 @@ function shuffle(array) {
                    return randomBildes;
                }
    function izveido(n){
-                    
+                 document.getElementById("kollona").style.display = "block";
+                 document.getElementById("ieksaa").style.display = "none";
+                document.getElementById("podz").style.display = "none";
+
                  console.log(n+"++");
 
 
@@ -79,29 +84,63 @@ function shuffle(array) {
                  poga.style.backgroundImage = "url('https://ebetina.pythonanywhere.com/static/fonins.png')";
                  poga.setAttribute("id", (i*n + j) + "");
                  poga.type = "button";
-                poga.onclick = () => {
-                let z = i * n + j;   // pareizais elements masīvā
+               poga.onclick = () => {
+                if (lock || poga === firstBtn) return;
 
-                // ja sākas ar "a" → bilde
-                 if (bildes[z].startsWith("a")) {
-                 poga.style.backgroundImage =
-                 "url(" + urrl + bildes[z] + ")";
-                  poga.value = ""; // noņem tekstu, ja bija
-                    }
-                // pretējā gadījumā → teksts (RGB)
-                 else {
+                let z = i * n + j;
+
+                if (bildes[z].startsWith("a")) {
+                 poga.style.backgroundImage = "url(" + urrl + bildes[z] + ")";
+                 poga.value = "";
+                } else {
                  poga.style.backgroundImage = "none";
-                 poga.value = bildes[z]; // parāda tekstu
+                 poga.value = bildes[z];
                 }
-                };
+    
+
+                     if (!firstBtn) {
+                     firstBtn = poga;
+                    firstBtn.idx = z;
+                    } else {
+                    secondBtn = poga;
+                    secondBtn.idx = z;
+                     lock = true;
+
+      
+        let ok =
+            bildes1.includes(bildes[firstBtn.idx]) &&
+            bildes2.includes(bildes[secondBtn.idx]) &&
+            bildes1.indexOf(bildes[firstBtn.idx]) ===
+            bildes2.indexOf(bildes[secondBtn.idx]) ||
+
+            bildes1.includes(bildes[secondBtn.idx]) &&
+            bildes2.includes(bildes[firstBtn.idx]) &&
+            bildes1.indexOf(bildes[secondBtn.idx]) ===
+            bildes2.indexOf(bildes[firstBtn.idx]);
+
+            if (!ok) {
+            setTimeout(() => {
+                closeButton(firstBtn);
+                closeButton(secondBtn);
+                firstBtn = null;
+                secondBtn = null;
+                lock = false;
+            }, 700);
+            } else {
+            firstBtn = null;
+            secondBtn = null;
+            lock = false;
+        }
+        }
+        };
                 if(n == 2){
                 poga.style.width = "140px";
                 poga.style.height =  "130px";
                }
                else if(n == 4){
-                poga.style.width = "80px";
-                poga.style.height =  "60px";
-                poga.style.paddingBottom = "40px";
+                poga.style.width = "70px";
+                poga.style.height =  "70px";
+                
                 
                }
                
@@ -141,6 +180,11 @@ function shuffle(array) {
 // setTimeout(function(){
 //    document.getElementById("laiks").style.backgroundColor="red";
 // },11000);
+function closeButton(btn) {
+    btn.style.backgroundImage =
+        "url('https://ebetina.pythonanywhere.com/static/fonins.png')";
+    btn.value = "";
+}
 
 
    

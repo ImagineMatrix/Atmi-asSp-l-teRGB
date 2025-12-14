@@ -134,15 +134,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     }
 }
 
+
 .kol{
-   
-    display: block;
-    margin-top: 100px;
-    margin-left: 530px;
+    display: none;
+    margin: -10px auto;   /* ← PABĪDA VISU PANELI UZ AUGŠU */
     width: 600px;
-    height: 400px;
+    min-height: 400px;
     background-color: #223;
-  
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#pogaslaukums{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;  
 }
    
    
